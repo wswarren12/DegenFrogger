@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degen Frogger</title>
+    <style>
+        /* Add styles for name input modal and leaderboard */
+        .name-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000;
+            border: 3px solid #00ff00;
+            padding: 20px;
+            text-align: center;
+            z-index: 1000;
+            font-family: 'Press Start 2P', monospace;
+        }
+        .name-modal input {
+            background: #000;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Press Start 2P', monospace;
+            text-transform: uppercase;
+            width: 200px;
+        }
+        .name-modal button {
+            background: #00ff00;
+            border: none;
+            color: #000;
+            padding: 10px 20px;
+            font-family: 'Press Start 2P', monospace;
+            cursor: pointer;
+        }
+        .leaderboard {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ff00;
+            padding: 20px;
+            color: #00ff00;
+            font-family: 'Press Start 2P', monospace;
+            text-align: center;
+            z-index: 1000;
+            min-width: 400px; /* Ensure enough width for longer names */
+        }
+        .leaderboard h2 {
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+        .leaderboard-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .leaderboard-list li {
+            margin: 10px 0;
+            font-size: 16px;
+            text-align: left;
+            padding: 5px 10px;
+        }
+        .leaderboard button {
+            background: #00ff00;
+            border: none;
+            color: #000;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-family: 'Press Start 2P', monospace;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>DEGEN FROGGER</h1>
+        <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+        <div class="game-info">
+            <div class="lives">LIVES: <span id="lives">3</span></div>
+            <div class="score">SCORE: <span id="score">0</span></div>
+            <div class="level">LEVEL: <span id="level">1</span></div>
+        </div>
+        <div class="controls">
+            <p>USE ARROW KEYS TO MOVE</p>
+            <button id="startButton">START GAME</button>
+        </div>
+    </div>
+
+    <!-- Name Input Modal -->
+    <div id="nameModal" class="name-modal">
+        <h2>ENTER YOUR NAME</h2>
+        <input type="text" id="playerName" maxlength="10" placeholder="ENTER NAME">
+        <button id="submitName">START</button>
+    </div>
+
+    <!-- Leaderboard Modal -->
+    <div id="leaderboard" class="leaderboard">
+        <h2>HIGH SCORES</h2>
+        <ul id="leaderboardList" class="leaderboard-list">
+        </ul>
+        <button id="closeLeaderboard">CLOSE</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html> 
